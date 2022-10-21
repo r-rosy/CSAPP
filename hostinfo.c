@@ -24,7 +24,8 @@ int main(int argc,char* argv[])
     flags=NI_NUMERICHOST;
     for(p=listp;p;p=p->ai_next)
     {
-        getnameinfo(p->ai_addr,p->ai_addrlen,buf,MAXLINE,NULL,0,flags);
+        //getnameinfo(p->ai_addr,p->ai_addrlen,buf,MAXLINE,NULL,0,flags);
+        inet_pton(AF_INET,buf,p->ai_addr);
         printf("%s\n",buf);
     }
 
