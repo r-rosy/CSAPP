@@ -25,7 +25,7 @@ int main(int argc,char* argv[])
     for(p=listp;p;p=p->ai_next)
     {
         //getnameinfo(p->ai_addr,p->ai_addrlen,buf,MAXLINE,NULL,0,flags);
-        inet_pton(AF_INET,buf,p->ai_addr);
+        inet_ntop(AF_INET,&(((struct sockaddr_in*)p->ai_addr)->sin_addr),buf,MAXLINE);
         printf("%s\n",buf);
     }
 
